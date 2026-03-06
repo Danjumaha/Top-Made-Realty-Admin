@@ -1,5 +1,5 @@
  // firebase-config.js
-// 🔥 Professional setup - Works on Website + App
+// 🔥 Professional setup - Google Sign-In: Website ONLY, Hidden in App
 
 // ✅ IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -61,33 +61,50 @@ async function uploadMultipleImages(files) {
   return await Promise.all(uploadPromises);
 }
 
-// 🔍 Detect if running in WebView (APK) or normal browser
+// 🔍 Detect if running in WebView (App) or Browser (Website)
 function isWebView() {
   const ua = navigator.userAgent || navigator.vendor || window.opera;
-  // Check for WebView indicators
   return /(wv|WebView|; wv\)|Version\/[\d.]+.*Chrome\/[\d.]+ Mobile)/i.test(ua) && 
          /Android|iPhone|iPad|iPod/i.test(ua);
 }
 
-// ✅ GOOGLE SIGN-IN - Smart: Works on Website, Friendly Message in App
-async function signInWithGoogle() {
-  try {
-    // If in WebView (APK), show friendly message instead of error
-    if (isWebView()) {
-      // Hide the alert - just redirect to use email/password
-      console.log("ℹ️ Google Sign-In not available in app - using fallback");
-      
-      // Optional: Show a gentle, professional message (not an error!)
-      const confirmUseEmail = confirm("For the best experience in the app, please use Email & Password. Google Sign-In is fully available on our website.");
-      
-      if (confirmUseEmail) {
-        // Redirect to login page with email/password focus
-        window.location.href = "/login.html?method=email";
-      }
-      return; // Stop here - no Firebase error!
-    }
+// 🎯 Hide Google button if in App (WebView) - CLEAN SOLUTION!
+function hideGoogleButtonInApp() {
+  if (isWebView()) {
+    // Hide all Google buttons by class, ID, or onclick attribute
+    const selectors = [
+      '[onclick*="signInWithGoogle"]',
+      '.google-btn',
+      '#googleLoginBtn',
+      '#googleSignupBtn',
+      'button:contains("Google")',
+      '[data-auth="google"]'
+    ];
     
-    // ✅ FOR WEBSITE ONLY: Full Google Sign-In
+    selectors.forEach(selector => {
+      try {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+          el.style.display = 'none';
+          el.disabled = true;
+        });
+      } catch (e) {
+        // Ignore selector errors
+      }
+    });
+    
+    console.log("✅ Google Sign-In hidden - running in App");
+  }
+}
+// ✅ GOOGLE SIGN-IN - Website ONLY
+async function signInWithGoogle() {
+  // Double-check: if in app, don't even try
+  if (isWebView()) {
+    console.log("🚫 Google Sign-In blocked in App");
+    return;
+  }
+  
+  try {
     await setPersistence(auth, browserLocalPersistence);
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
@@ -96,7 +113,8 @@ async function signInWithGoogle() {
     console.log("✅ Google Sign-In Success:", user.email);
     
     // Save user info
-    localStorage.setItem("userEmail", user.email);    localStorage.setItem("userName", user.displayName);
+    localStorage.setItem("userEmail", user.email);
+    localStorage.setItem("userName", user.displayName);
     localStorage.setItem("userPhoto", user.photoURL);
     localStorage.setItem("userUid", user.uid);
     
@@ -104,16 +122,9 @@ async function signInWithGoogle() {
     window.location.href = "/index.html";
     
   } catch (error) {
-    // ✅ PROFESSIONAL ERROR HANDLING - No ugly Firebase errors!
-    console.log("Sign-in attempt completed");
-    
-    // Only show message for website (not app)
-    if (!isWebView()) {
-      // Friendly message, not technical error
-      const msg = "Unable to sign in with Google. Please try Email & Password, or visit our website for full Google support.";
-      alert(msg);
-    }
-    // In app: silently fail - no alert, no error shown to user!
+    console.error("❌ Google Sign-In Error:", error.message);
+    // Simple, friendly message only on website
+    alert("Google Sign-In failed. Please try Email & Password.");
   }
 }
 
@@ -130,6 +141,12 @@ function signOutUser() {
 window.signInWithGoogle = signInWithGoogle;
 window.signOutUser = signOutUser;
 
+// ✅ RUN: Hide Google button if in App (runs on page load)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', hideGoogleButtonInApp);
+} else {
+  hideGoogleButtonInApp();}
+
 // ✅ EXPORTS
 export { 
   db, 
@@ -145,5 +162,6 @@ export {
   orderBy,
   uploadImage,
   uploadMultipleImages,
-  signInWithGoogle,  signOutUser
+  signInWithGoogle,
+  signOutUser
 };
