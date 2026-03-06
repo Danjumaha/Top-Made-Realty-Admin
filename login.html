@@ -571,7 +571,58 @@
         sendResetBtn.textContent = 'Send Reset Link';
       }
     });
-  </script>
+
+
+
+
+
+
+
+
+ 
+(function() {
+  // Detect WebView
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var isWebView = /(wv|WebView)/i.test(ua) && /Android|iPhone|iPad|iPod/i.test(ua);
+  
+  // If in app, hide Google button immediately
+  if (isWebView) {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', hideGoogleButton);
+    } else {
+      hideGoogleButton();
+    }
+  }
+  
+  function hideGoogleButton() {
+    // Find and hide ALL Google buttons
+    var buttons = document.querySelectorAll('button');
+    buttons.forEach(function(btn) {
+      if (btn.textContent.includes('Google') || 
+          btn.id.includes('google') || 
+          (btn.className && btn.className.toString().includes('google'))) {
+        btn.style.display = 'none';
+        btn.disabled = true;
+      }
+    });
+    
+    // Also try by class name
+    var googleBtns = document.querySelectorAll('.google-btn, #googleLoginBtn, #googleSignupBtn');
+    googleBtns.forEach(function(btn) {
+      btn.style.display = 'none';
+    });
+    
+    console.log('✅ Google button hidden in app');
+  }
+})();
+</script>
+
+
+
+
+
+ 
 
 
 <!-- Firebase Config -->
