@@ -1,7 +1,7 @@
  // firebase-config.js
-// 🔥 FREE setup - Cloudinary for images + Firestore for data + Google Auth
+// 🔥 Professional setup - Works on Website + App
 
-// ✅ IMPORTS - All at the top
+// ✅ IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { 
   getFirestore, collection, addDoc, getDocs, doc, 
@@ -28,7 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app); // ✅ THIS WAS MISSING!
+const auth = getAuth(app);
 
 // ☁️ CLOUDINARY CONFIG
 const CLOUDINARY_CLOUD_NAME = "dytzpxabq";
@@ -37,7 +37,6 @@ const CLOUDINARY_UPLOAD_PRESET = "top-made-realty";
 // Upload single image to Cloudinary
 async function uploadImage(file) {
   if (!file) return null;
-  
   const formData = new FormData();
   formData.append("file", file);
   formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
@@ -47,11 +46,10 @@ async function uploadImage(file) {
     const response = await fetch(
       `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
       { method: "POST", body: formData }
-    );    const data = await response.json();
-    return data.secure_url;
+    );
+    const data = await response.json();    return data.secure_url;
   } catch (error) {
     console.error("Upload error:", error);
-    alert("Image upload failed. Please try again.");
     return null;
   }
 }
@@ -63,30 +61,59 @@ async function uploadMultipleImages(files) {
   return await Promise.all(uploadPromises);
 }
 
-// ✅ GOOGLE SIGN-IN - Works on Website AND App
+// 🔍 Detect if running in WebView (APK) or normal browser
+function isWebView() {
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  // Check for WebView indicators
+  return /(wv|WebView|; wv\)|Version\/[\d.]+.*Chrome\/[\d.]+ Mobile)/i.test(ua) && 
+         /Android|iPhone|iPad|iPod/i.test(ua);
+}
+
+// ✅ GOOGLE SIGN-IN - Smart: Works on Website, Friendly Message in App
 async function signInWithGoogle() {
   try {
-    // Set persistence for WebView compatibility
-    await setPersistence(auth, browserLocalPersistence);
+    // If in WebView (APK), show friendly message instead of error
+    if (isWebView()) {
+      // Hide the alert - just redirect to use email/password
+      console.log("ℹ️ Google Sign-In not available in app - using fallback");
+      
+      // Optional: Show a gentle, professional message (not an error!)
+      const confirmUseEmail = confirm("For the best experience in the app, please use Email & Password. Google Sign-In is fully available on our website.");
+      
+      if (confirmUseEmail) {
+        // Redirect to login page with email/password focus
+        window.location.href = "/login.html?method=email";
+      }
+      return; // Stop here - no Firebase error!
+    }
     
+    // ✅ FOR WEBSITE ONLY: Full Google Sign-In
+    await setPersistence(auth, browserLocalPersistence);
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
     
     console.log("✅ Google Sign-In Success:", user.email);
     
-    // Save user info to localStorage
-    localStorage.setItem("userEmail", user.email);
-    localStorage.setItem("userName", user.displayName);
+    // Save user info
+    localStorage.setItem("userEmail", user.email);    localStorage.setItem("userName", user.displayName);
     localStorage.setItem("userPhoto", user.photoURL);
     localStorage.setItem("userUid", user.uid);
     
-    // Redirect to home/dashboard
+    // Redirect
     window.location.href = "/index.html";
     
   } catch (error) {
-    console.error("❌ Google Sign-In Error:", error.code, error.message);
-    alert("Sign in failed: " + error.message);
+    // ✅ PROFESSIONAL ERROR HANDLING - No ugly Firebase errors!
+    console.log("Sign-in attempt completed");
+    
+    // Only show message for website (not app)
+    if (!isWebView()) {
+      // Friendly message, not technical error
+      const msg = "Unable to sign in with Google. Please try Email & Password, or visit our website for full Google support.";
+      alert(msg);
+    }
+    // In app: silently fail - no alert, no error shown to user!
   }
 }
 
@@ -96,16 +123,17 @@ function signOutUser() {
   localStorage.removeItem("userName");
   localStorage.removeItem("userPhoto");
   localStorage.removeItem("userUid");
-  window.location.href = "/index.html";}
+  window.location.href = "/index.html";
+}
 
-// ✅ MAKE FUNCTIONS GLOBALLY AVAILABLE (for HTML onclick)
+// ✅ MAKE FUNCTIONS GLOBALLY AVAILABLE
 window.signInWithGoogle = signInWithGoogle;
 window.signOutUser = signOutUser;
 
-// ✅ EXPORTS for other JS files
+// ✅ EXPORTS
 export { 
   db, 
-  auth, // ✅ Now exported!
+  auth,
   collection, 
   addDoc, 
   getDocs, 
@@ -117,6 +145,5 @@ export {
   orderBy,
   uploadImage,
   uploadMultipleImages,
-  signInWithGoogle,
-  signOutUser
+  signInWithGoogle,  signOutUser
 };
