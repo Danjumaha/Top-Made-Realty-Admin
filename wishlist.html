@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Wishlist - Top-Made Realty</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #1a2b4d;
+      --primary-light: #2c4a7d;
+      --primary-dark: #0f1c35;
+      --white: #FFFFFF;
+      --bg: #F5F7FA;
+      --card-bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #555555;
+      --border: #E0E0E0;
+      --shadow: 0 4px 12px rgba(26, 43, 77, 0.15);
+      --overlay: rgba(26, 43, 77, 0.75);
+      --heart-color: #e91e63;
+    }
+
+    [data-theme="dark"] {
+      --primary: #1a2b4d;
+      --primary-light: #3d5a8a;
+      --primary-dark: #0a1224;
+      --white: #1E1E1E;
+      --bg: #0f1419;
+      --card-bg: #1E1E1E;
+      --text: #E0E0E0;
+      --text-light: #B0B0B0;
+      --border: #333333;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --overlay: rgba(0, 0, 0, 0.85);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 80px;
+      transition: background 0.3s, color 0.3s;
+    }
+  /* ===== HEADER ===== */
+    .main-header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      z-index: 1000;
+      padding: 15px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      font-style: normal;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .icons-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+    }
+
+    .wishlist-link {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8px;      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+    }
+
+    .wishlist-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #e91e63;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }      
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .theme-toggle,
+      .wishlist-link,
+      .hamburger {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--white);      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .page-hero i {
+      color: var(--heart-color);
+    }
+
+    /* ===== WISHLIST CONTAINER ===== */
+    .wishlist-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .wishlist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .wishlist-count-text {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    .wishlist-count-text span {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .clear-wishlist-btn {      background: var(--danger, #C62828);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .clear-wishlist-btn:hover {
+      background: #b71c1c;
+      transform: translateY(-2px);
+    }
+
+    /* ===== PROPERTIES GRID ===== */
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .property-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(26, 43, 77, 0.25);
+    }
+
+    .property-img-container {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .property-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      display: block;
+      transition: transform 0.3s;
+    }
+
+    .property-card:hover .property-img {
+      transform: scale(1.05);
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--heart-color);
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 5;
+    }
+
+    .wishlist-btn:hover {
+      transform: scale(1.1);
+      background: var(--heart-color);
+      color: white;
+    }
+
+    .property-info {
+      padding: 20px;
+    }
+
+    .property-status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .status-available { background: #E8F5E9; color: #1B5E20; }
+    .status-sold { background: #FFEBEE; color: #C62828; }    .status-rented { background: #FFF3E0; color: #EF6C00; }
+    .status-leased { background: #E3F2FD; color: #1565C0; }
+
+    [data-theme="dark"] .status-available { background: #1B5E20; color: #fff; }
+    [data-theme="dark"] .status-sold { background: #C62828; color: #fff; }
+    [data-theme="dark"] .status-rented { background: #EF6C00; color: #fff; }
+    [data-theme="dark"] .status-leased { background: #1565C0; color: #fff; }
+
+    .property-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .property-info p {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .property-price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 12px 0;
+    }
+
+    .old-price {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: var(--text-light);
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+
+    .discount-badge {
+      background: #e91e63;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;      margin-left: 5px;
+    }
+
+    .view-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      margin-top: 12px;
+      transition: background 0.3s;
+      font-size: 14px;
+    }
+
+    .view-btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .empty-state i {
+      font-size: 5rem;
+      color: var(--heart-color);
+      opacity: 0.3;
+      margin-bottom: 20px;
+    }
+
+    .empty-state h2 {
+      font-size: 1.8rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .empty-state p {
+      color: var(--text-light);
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+    .browse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .browse-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 43, 77, 0.3);
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1001;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: -320px;
+      width: 300px;
+      height: 100vh;
+      background: var(--card-bg);
+      z-index: 1002;
+      transition: right 0.3s ease;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active { right: 0; }
+    .mobile-menu-overlay.active { display: block; }
+
+    .menu-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;      gap: 10px;
+    }
+
+    .menu-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .user-greeting {
+      text-align: center;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: none;
+      width: 100%;
+    }
+
+    .user-greeting.active {
+      display: block;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .user-greeting h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .user-greeting p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text);
+      align-self: flex-end;      width: 100%;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 14px 0;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+      padding-left: 8px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 50px 20px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo .logo-icon {
+      width: 45px;
+      height: 45px;
+      font-size: 1.4rem;
+    }
+    .footer-about p {
+      opacity: 0.9;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 1.3rem;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .social-tiktok { background: #000000; }
+    .social-x { background: #000000; }
+    .social-facebook { background: #1877F2; }
+    .social-whatsapp { background: #25D366; }
+
+    .footer-links h4 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: rgba(255,255,255,0.3);    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .contact-info i {
+      margin-top: 3px;
+      width: 20px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .contact-info a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    .copyright {      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* ===== TOAST NOTIFICATION ===== */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 2000;
+      display: none;
+      animation: slideInRight 0.3s ease;
+      max-width: 300px;
+    }
+
+    .toast.show {
+      display: block;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(400px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .properties-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .wishlist-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .clear-wishlist-btn {
+        justify-content: center;
+      }    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="menu-header">
+      <button id="closeMenuBtn" class="close-btn">&times;</button>
+      <div class="menu-logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </div>
+    </div>
+    
+    <div id="userGreeting" class="user-greeting">
+      <h3>Welcome Back! 👋</h3>
+      <p id="userNameDisplay">User</p>
+    </div>
+    
+    <nav class="mobile-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+      <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="wishlist.html" style="color: var(--primary); font-weight: 700;"><i class="fas fa-heart"></i> Wishlist</a>
+      <a href="login.html" id="mobileLogin"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="signup.html" id="mobileSignup"><i class="fas fa-user-plus"></i> Sign Up</a>
+      <a href="admin.html" style="color: var(--primary); font-weight: 700;"><i class="fas fa-cog"></i> Admin</a>
+      <a href="#" id="mobileLogout" style="display: none; color: #e91e63;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </div>
+
+ 
+<!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">TR</div>
+          <span class="logo-text">Top-Made Realty</span>
+        </a>
+      </div>
+      
+      <div class="icons-wrapper">
+        <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <a href="wishlist.html" class="wishlist-link" title="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </a>
+        
+        <button id="menuToggle" class="hamburger" title="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <h1><i class="fas fa-heart"></i> My Wishlist</h1>
+    <p>Properties you've saved for later</p>
+  </section>
+
+  <!-- Wishlist Container -->
+  <div class="wishlist-container">
+    <div class="wishlist-header">
+      <div class="wishlist-count-text">
+        You have <span id="wishlistNumber">0</span> saved properties
+      </div>
+      <button class="clear-wishlist-btn" id="clearWishlistBtn" style="display: none;">
+        <i class="fas fa-trash"></i>
+        Clear All
+      </button>
+    </div>
+
+    <div class="properties-grid" id="wishlistGrid">
+      <div class="loading" style="text-align: center; padding: 60px 20px; grid-column: 1/-1;">
+        <i class="fas fa-spinner" style="font-size: 3rem; color: var(--primary); animation: spin 1s linear infinite;"></i>
+        <p style="margin-top: 15px; color: var(--text-light);">Loading your wishlist...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">
+          <div class="logo-icon">TR</div>
+          <span>TOP-MADE REALTY</span>        </div>
+        <p>Empowering your real estate journey with expert solutions for buying, renting, and investing across Nigeria.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/topmaderealty" target="_blank" class="social-instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com/@topmaderealty" target="_blank" class="social-tiktok"><i class="fab fa-tiktok"></i></a>
+         
+
+
+          <a href=" https://x.com/agency_estate20?s=21" target="_blank" aria-label="X (Twitter)">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  </a>
+
+
+
+<a href="https://facebook.com/topmaderealty" target="_blank" class="social-facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/2349129299979" target="_blank" class="social-whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="faqs.html"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="wishlist.html"><i class="fas fa-chevron-right"></i> Wishlist</a></li>
+          <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login</a></li>
+          <li><a href="signup.html"><i class="fas fa-chevron-right"></i> Sign Up</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contact Info</h4>
+        <ul class="contact-info">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:realestatemanagement2025@gmail.com">realestatemanagement2025@gmail.com</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="tel:+2347063352525">+234 706 335 2525</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="tel:+2349129299979">+234 912 929 9979</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="https://maps.google.com/?q=22+Peaceland+Estate,+Ajah,+Lagos" target="_blank">22 Peaceland Estate, Ajah, Lagos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      © 2025 Top-Made Realty Homes. All rights reserved.    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2349129299979" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp" style="position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); text-decoration: none; z-index: 1000; transition: transform 0.3s;">
+    <i class="fab fa-whatsapp" style="font-size: 2rem;"></i>
+  </a>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCCtvETKvK_F2Juc1eYX6Qvg-MoIMU8dIw",
+      authDomain: "top-made-realty.firebaseapp.com",
+      projectId: "top-made-realty",
+      storageBucket: "top-made-realty.firebasestorage.app",
+      messagingSenderId: "984525164905",
+      appId: "1:984525164905:web:a8a642276a9db0dc57edf8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    let currentUser = null;
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    let allProperties = [];
+    let wishlistProperties = [];
+
+    // Auth State Observer
+    onAuthStateChanged(auth, (user) => {
+      currentUser = user;
+      updateAuthUI();
+    });
+
+    // Show Toast Notification
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Update UI based on auth state
+    function updateAuthUI() {
+      const mobileLogin = document.getElementById('mobileLogin');      const mobileSignup = document.getElementById('mobileSignup');
+      const mobileLogout = document.getElementById('mobileLogout');
+      const userGreeting = document.getElementById('userGreeting');
+      const userNameDisplay = document.getElementById('userNameDisplay');
+
+      if (currentUser) {
+        if (mobileLogin) mobileLogin.style.display = 'none';
+        if (mobileSignup) mobileSignup.style.display = 'none';
+        if (mobileLogout) mobileLogout.style.display = 'block';
+        
+        if (userGreeting) {
+          userGreeting.classList.add('active');
+          const name = currentUser.displayName || currentUser.email.split('@')[0];
+          userNameDisplay.textContent = name;
+        }
+      } else {
+        if (mobileLogin) mobileLogin.style.display = 'block';
+        if (mobileSignup) mobileSignup.style.display = 'block';
+        if (mobileLogout) mobileLogout.style.display = 'none';
+        
+        if (userGreeting) userGreeting.classList.remove('active');
+      }
+      
+      updateWishlistCount();
+    }
+
+    // Logout
+    document.getElementById('mobileLogout')?.addEventListener('click', async () => {
+      await signOut(auth);
+      showToast('You have been logged out');
+      setTimeout(() => window.location.reload(), 1000);
+    });
+
+    // Update Wishlist Count
+    function updateWishlistCount() {
+      const count = wishlist.length;
+      document.getElementById('wishlistCount').textContent = count;
+      document.getElementById('wishlistNumber').textContent = count;
+      
+      const clearBtn = document.getElementById('clearWishlistBtn');
+      if (count > 0) {
+        clearBtn.style.display = 'flex';
+      } else {
+        clearBtn.style.display = 'none';
+      }
+    }
+
+    // Load All Properties
+    async function loadAllProperties() {
+      try {        const snapshot = await getDocs(collection(db, 'properties'));
+        allProperties = [];
+        snapshot.forEach(doc => {
+          allProperties.push({ id: doc.id, ...doc.data() });
+        });
+        filterWishlistProperties();
+      } catch (error) {
+        console.error('Error loading properties:', error);
+        document.getElementById('wishlistGrid').innerHTML = `
+          <div class="empty-state" style="grid-column: 1/-1;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h2>Error Loading Properties</h2>
+            <p>${error.message}</p>
+          </div>
+        `;
+      }
+    }
+
+    // Filter Wishlist Properties
+    function filterWishlistProperties() {
+      wishlistProperties = allProperties.filter(prop => wishlist.includes(prop.id));
+      renderWishlist();
+    }
+
+    // Render Wishlist
+    function renderWishlist() {
+      const grid = document.getElementById('wishlistGrid');
+      
+      if (wishlistProperties.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column: 1/-1;">
+            <i class="fas fa-heart"></i>
+            <h2>Your Wishlist is Empty</h2>
+            <p>Start browsing properties and save the ones you love!</p>
+            <a href="index.html" class="browse-btn">
+              <i class="fas fa-home"></i>
+              Browse Properties
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = wishlistProperties.map(prop => {
+        const firstImage = prop.images?.[0] || 'https://via.placeholder.com/400x300?text=No+Image';
+        
+        let priceHtml = `₦${Number(prop.price || 0).toLocaleString()}`;
+        if (prop.oldPrice && prop.oldPrice > prop.price) {
+          const discountPercent = Math.round(((prop.oldPrice - prop.price) / prop.oldPrice) * 100);
+          priceHtml = `            <span class="old-price">₦${Number(prop.oldPrice).toLocaleString()}</span>
+            ${priceHtml}
+            <span class="discount-badge">${discountPercent}% OFF</span>
+          `;
+        }
+
+        return `
+          <div class="property-card" data-id="${prop.id}">
+            <div class="property-img-container">
+              <img src="${firstImage}" alt="${prop.title}" class="property-img">
+              <button class="wishlist-btn" onclick="window.removeFromWishlist('${prop.id}')" title="Remove from wishlist">
+                <i class="fas fa-heart"></i>
+              </button>
+            </div>
+            <div class="property-info">
+              <span class="property-status status-${(prop.status || 'available').toLowerCase()}">
+                ${prop.status || 'Available'}
+              </span>
+              <h3>${prop.title || 'Untitled Property'}</h3>
+              <p><i class="fas fa-map-marker-alt"></i> ${prop.location || 'N/A'}</p>
+              <p><i class="fas fa-home"></i> ${prop.type || 'N/A'}</p>
+              ${prop.bedrooms ? `<p><i class="fas fa-bed"></i> ${prop.bedrooms} Bedrooms</p>` : ''}
+              <div class="property-price">${priceHtml}</div>
+              <a href="details.html?id=${prop.id}" class="view-btn">
+                View Details <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Remove from Wishlist
+    window.removeFromWishlist = function(propertyId) {
+      const index = wishlist.indexOf(propertyId);
+      if (index > -1) {
+        wishlist.splice(index, 1);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showToast('Removed from wishlist');
+        updateWishlistCount();
+        filterWishlistProperties();
+      }
+    };
+
+    // Clear All Wishlist
+    document.getElementById('clearWishlistBtn').addEventListener('click', () => {
+      if (confirm('Are you sure you want to clear all items from your wishlist?')) {
+        wishlist = [];
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showToast('Wishlist cleared');        updateWishlistCount();
+        filterWishlistProperties();
+      }
+    });
+
+    // Mobile Menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('active');
+      document.getElementById('mobileMenuOverlay').classList.add('active');
+    });
+    
+    document.getElementById('closeMenuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.getElementById('mobileMenuOverlay').classList.remove('active');
+    });
+    
+    document.getElementById('mobileMenuOverlay').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      this.classList.remove('active');
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    icon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    
+    themeToggle.addEventListener('click', () => {
+      const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+
+    // Initialize
+    updateWishlistCount();
+    loadAllProperties();
+  </script>
+</body>
+</html>

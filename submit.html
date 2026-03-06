@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Property | Top-Made Realty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a2b4d;
+      --primary-light: #2c4a7d;
+      --white: #FFFFFF;
+      --bg: #F5F7FA;
+      --card-bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #555555;
+      --border: #E0E0E0;
+      --success: #2E7D32;
+      --accent: #FF6B6B;
+    }
+    [data-theme="dark"] {
+      --primary: #1a2b4d;
+      --primary-light: #3d5a8a;
+      --white: #1E1E1E;
+      --bg: #0f1419;
+      --card-bg: #1E1E1E;
+      --text: #E0E0E0;
+      --text-light: #B0B0B0;
+      --border: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+  /* ===== HEADER ===== */
+    .main-header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      z-index: 1000;
+      padding: 15px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      font-style: normal;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .icons-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+    }
+
+    .wishlist-link {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8px;      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+    }
+
+    .wishlist-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #e91e63;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }      
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .theme-toggle,
+      .wishlist-link,
+      .hamburger {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .hero {
+      margin-top: 70px;
+      height: 450px;
+      background: linear-gradient(135deg, rgba(26,43,77,0.9), rgba(26,43,77,0.7)), 
+                  url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    .section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+    .submit-form {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .form-section {
+      margin-bottom: 40px;
+    }
+    .form-section h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .form-group label span {
+      color: var(--accent);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    .form-group input:focus,    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .checkbox-group input {
+      width: auto;
+      margin-top: 5px;
+    }
+    .checkbox-group label {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 18px 50px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+    }
+    .submit-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }    .info-box h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .info-box p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .main-footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 60px 20px 20px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .footer-section p, .footer-section a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      line-height: 2;
+    }
+    .footer-section a:hover {
+      color: var(--white);
+    }
+    .footer-section i {
+      margin-right: 10px;
+      width: 20px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;      background: rgba(0,0,0,0.5);
+      z-index: 1001;
+    }
+    .mobile-menu-overlay.active { display: block; }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--card-bg);
+      z-index: 1002;
+      transition: right 0.3s;
+      overflow-y: auto;
+    }
+    .mobile-menu.active { right: 0; }
+    .menu-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .close-menu {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 15px 20px;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:hover {
+      background: var(--bg);
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+      .submit-form { padding: 25px; }
+    }
+  </style>
+</head><body>
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </a>
+      <div class="icons-wrapper">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <a href="wishlist.html" class="wishlist-link">
+          <i class="fas fa-heart"></i>
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </a>
+        <button class="hamburger" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="menu-header">
+      <div class="logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </div>
+      <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+      <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="submit.html"><i class="fas fa-plus-circle"></i> Submit Property</a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Submit Your Property</h1>
+      <p>List with us and reach thousands of potential buyers and tenants</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Property Submission Form</h2>
+    <p class="section-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+
+    <div class="info-box">      <h4><i class="fas fa-info-circle"></i> Why List With Top-Made Realty?</h4>
+      <p>✓ Extensive marketing across multiple platforms<br>
+         ✓ Professional photography and virtual tours<br>
+         ✓ Qualified buyer/tenant screening<br>
+         ✓ Expert negotiation services<br>
+         ✓ End-to-end transaction support</p>
+    </div>
+
+    <form class="submit-form" id="propertyForm">
+      <!-- Personal Information -->
+      <div class="form-section">
+        <h3><i class="fas fa-user"></i> Personal Information</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input type="text" id="ownerName" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label>Phone Number <span>*</span></label>
+            <input type="tel" id="ownerPhone" required placeholder="+234 800 000 0000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address <span>*</span></label>
+            <input type="email" id="ownerEmail" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="ownerPhone2" placeholder="+234 800 000 0000">
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Type -->
+      <div class="form-section">
+        <h3><i class="fas fa-home"></i> Property Type</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Transaction Type <span>*</span></label>
+            <select id="transactionType" required>
+              <option value="">Select Type</option>
+              <option value="sale">For Sale</option>
+              <option value="rent">For Rent</option>
+              <option value="lease">For Lease</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Property Category <span>*</span></label>
+            <select id="propertyCategory" required>              <option value="">Select Category</option>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="land">Land/Plot</option>
+              <option value="industrial">Industrial</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Property Type <span>*</span></label>
+          <select id="propertyType" required>
+            <option value="">Select Property Type</option>
+            <option value="detached-house">Detached House</option>
+            <option value="semi-detached">Semi-Detached House</option>
+            <option value="terraced">Terraced House</option>
+            <option value="apartment">Apartment/Flat</option>
+            <option value="penthouse">Penthouse</option>
+            <option value="duplex">Duplex</option>
+            <option value="bungalow">Bungalow</option>
+            <option value="office">Office Space</option>
+            <option value="shop">Shop/Retail</option>
+            <option value="warehouse">Warehouse</option>
+            <option value="land">Residential Land</option>
+            <option value="commercial-land">Commercial Land</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Property Details -->
+      <div class="form-section">
+        <h3><i class="fas fa-map-marker-alt"></i> Property Location</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>State <span>*</span></label>
+            <select id="state" required>
+              <option value="">Select State</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja (FCT)</option>
+              <option value="Rivers">Rivers</option>
+              <option value="Oyo">Oyo</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>City/Area <span>*</span></label>
+            <input type="text" id="city" required placeholder="e.g., Victoria Island, Lekki">
+          </div>
+        </div>
+        <div class="form-group">          <label>Full Address <span>*</span></label>
+          <textarea id="address" required placeholder="Complete street address and landmarks"></textarea>
+        </div>
+      </div>
+
+      <!-- Property Features -->
+      <div class="form-section">
+        <h3><i class="fas fa-list"></i> Property Features</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Bedrooms</label>
+            <input type="number" id="bedrooms" min="0" placeholder="Number of bedrooms">
+          </div>
+          <div class="form-group">
+            <label>Bathrooms</label>
+            <input type="number" id="bathrooms" min="0" placeholder="Number of bathrooms">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Toilets</label>
+            <input type="number" id="toilets" min="0" placeholder="Number of toilets">
+          </div>
+          <div class="form-group">
+            <label>Parlours</label>
+            <input type="number" id="parlours" min="0" placeholder="Number of parlours">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Plot Size (sqm)</label>
+            <input type="number" id="plotSize" placeholder="Plot size in square meters">
+          </div>
+          <div class="form-group">
+            <label>Floor Area (sqm)</label>
+            <input type="number" id="floorArea" placeholder="Floor area in square meters">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Features</label>
+          <textarea id="features" placeholder="Swimming pool, gym, security, parking, generator, etc."></textarea>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="form-section">
+        <h3><i class="fas fa-naira-sign"></i> Pricing Information</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price (₦) <span>*</span></label>            <input type="number" id="price" required placeholder="e.g., 50000000">
+          </div>
+          <div class="form-group">
+            <label>Negotiable?</label>
+            <select id="negotiable">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-section">
+        <h3><i class="fas fa-align-left"></i> Property Description</h3>
+        <div class="form-group">
+          <label>Detailed Description <span>*</span></label>
+          <textarea id="description" required placeholder="Provide a detailed description of the property, its condition, nearby amenities, unique features, etc." style="min-height: 150px;"></textarea>
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <div class="form-group">
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">I confirm that I am the legal owner or authorized representative of this property. I agree to Top-Made Realty's terms and conditions for property listing. <span>*</span></label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <i class="fab fa-whatsapp"></i> Submit via WhatsApp
+      </button>
+    </form>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Top-Made Realty</h3>
+        <p>Your trusted partner in finding the perfect property. We make your real estate dreams a reality.</p>
+        <div style="margin-top: 20px;">
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>        <p><a href="about.html">About Us</a></p>
+        <p><a href="faqs.html">FAQs</a></p>
+        <p><a href="blog.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <p><a href="#">Buy Property</a></p>
+        <p><a href="#">Rent Property</a></p>
+        <p><a href="#">Sell Property</a></p>
+        <p><a href="#">Property Management</a></p>
+        <p><a href="#">Investment Advisory</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Victoria Island, Lagos, Nigeria</p>
+        <p><i class="fas fa-phone"></i> +234 803 690 9700</p>
+        <p><i class="fas fa-envelope"></i> info@topmaderealty.com</p>
+        <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Top-Made Realty. All rights reserved. | Designed with <i class="fas fa-heart"></i> in Nigeria</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+    });
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+    });
+    mobileMenuOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+    });
+
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      document.getElementById('wishlistCount').textContent = wishlist.length;
+    }
+    updateWishlistCount();
+
+    // Form Submission
+    document.getElementById('propertyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const data = {
+        name: document.getElementById('ownerName').value,
+        phone: document.getElementById('ownerPhone').value,
+        phone2: document.getElementById('ownerPhone2').value,
+        email: document.getElementById('ownerEmail').value,
+        transactionType: document.getElementById('transactionType').value,
+        category: document.getElementById('propertyCategory').value,
+        propertyType: document.getElementById('propertyType').value,
+        state: document.getElementById('state').value,
+        city: document.getElementById('city').value,
+        address: document.getElementById('address').value,
+        bedrooms: document.getElementById('bedrooms').value || 'N/A',
+        bathrooms: document.getElementById('bathrooms').value || 'N/A',
+        toilets: document.getElementById('toilets').value || 'N/A',
+        parlours: document.getElementById('parlours').value || 'N/A',
+        plotSize: document.getElementById('plotSize').value || 'N/A',
+        floorArea: document.getElementById('floorArea').value || 'N/A',
+        features: document.getElementById('features').value || 'N/A',
+        price: document.getElementById('price').value,
+        negotiable: document.getElementById('negotiable').value,
+        description: document.getElementById('description').value
+      };
+      const transactionTypes = {
+        'sale': 'FOR SALE',
+        'rent': 'FOR RENT',
+        'lease': 'FOR LEASE'
+      };
+
+      const message = `*NEW PROPERTY SUBMISSION*\n\n` +
+        `*OWNER DETAILS:*\n` +
+        `Name: ${data.name}\n` +
+        `Phone: ${data.phone}\n` +
+        `Alt Phone: ${data.phone2}\n` +
+        `Email: ${data.email}\n\n` +
+        
+        `*PROPERTY TYPE:*\n` +
+        `Transaction: ${transactionTypes[data.transactionType]}\n` +
+        `Category: ${data.category}\n` +
+        `Type: ${data.propertyType}\n\n` +
+        
+        `*LOCATION:*\n` +
+        `State: ${data.state}\n` +
+        `Area: ${data.city}\n` +
+        `Address: ${data.address}\n\n` +
+        
+        `*FEATURES:*\n` +
+        `Bedrooms: ${data.bedrooms}\n` +
+        `Bathrooms: ${data.bathrooms}\n` +
+        `Toilets: ${data.toilets}\n` +
+        `Parlours: ${data.parlours}\n` +
+        `Plot Size: ${data.plotSize} sqm\n` +
+        `Floor Area: ${data.floorArea} sqm\n` +
+        `Features: ${data.features}\n\n` +
+        
+        `*PRICE:*\n` +
+        `Amount: ₦${Number(data.price).toLocaleString()}\n` +
+        `Negotiable: ${data.negotiable}\n\n` +
+        
+        `*DESCRIPTION:*\n${data.description}`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/2348036909700?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>

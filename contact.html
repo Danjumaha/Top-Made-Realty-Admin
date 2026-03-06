@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Top-Made Realty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a2b4d;
+      --primary-light: #2c4a7d;
+      --white: #FFFFFF;
+      --bg: #F5F7FA;
+      --card-bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #555555;
+      --border: #E0E0E0;
+      --success: #2E7D32;
+      --accent: #FF6B6B;
+    }
+    [data-theme="dark"] {
+      --primary: #1a2b4d;
+      --primary-light: #3d5a8a;
+      --white: #1E1E1E;
+      --bg: #0f1419;
+      --card-bg: #1E1E1E;
+      --text: #E0E0E0;
+      --text-light: #B0B0B0;
+      --border: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+  /* ===== HEADER ===== */
+    .main-header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      z-index: 1000;
+      padding: 15px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      font-style: normal;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .icons-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+    }
+
+    .wishlist-link {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8px;      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+    }
+
+    .wishlist-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #e91e63;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }      
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .theme-toggle,
+      .wishlist-link,
+      .hamburger {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+
+     /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 43, 77, 0.85), rgba(26, 43, 77, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200') center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 20px;
+      margin-top: 75px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+
+
+
+
+
+
+
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 50px;
+      font-weight: 700;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;      gap: 50px;
+      margin-bottom: 60px;
+    }
+    .contact-info {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .contact-info h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .info-item i {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-top: 5px;
+    }
+    .info-item div strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    .info-item div p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .social-links {
+      margin-top: 30px;
+    }
+    .social-links h4 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: var(--primary);
+      color: white;      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    .contact-form {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .contact-form h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;    }
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .submit-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .map-section {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
+    }
+    .map-section h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ddd;
+    }
+    .main-footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 60px 20px 20px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;    }
+    .footer-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .footer-section p, .footer-section a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      line-height: 2;
+    }
+    .footer-section a:hover {
+      color: var(--white);
+    }
+    .footer-section i {
+      margin-right: 10px;
+      width: 20px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1001;
+    }
+    .mobile-menu-overlay.active { display: block; }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--card-bg);
+      z-index: 1002;
+      transition: right 0.3s;
+      overflow-y: auto;
+    }
+    .mobile-menu.active { right: 0; }
+    .menu-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 20px;      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .close-menu {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 15px 20px;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:hover {
+      background: var(--bg);
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </a>
+      <div class="icons-wrapper">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <a href="wishlist.html" class="wishlist-link">
+          <i class="fas fa-heart"></i>
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </a>
+        <button class="hamburger" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="menu-header">      <div class="logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </div>
+      <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+      <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="submit.html"><i class="fas fa-plus-circle"></i> Submit Property</a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </nav>
+  </div>
+
+
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We're here to help you find your dream property</p>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Visit Us</strong>
+            <p>123 Victoria Island<br>Lagos, Nigeria</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Call Us</strong>
+            <p>+234 803 690 9700<br>+234 803 690 9701</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email Us</strong>
+            <p>info@topmaderealty.com<br>support@topmaderealty.com</p>
+          </div>
+        </div>
+        <div class="info-item">          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Working Hours</strong>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <h4>Follow Us</h4>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+234 800 000 0000">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a subject</option>
+              <option value="buy">I want to buy a property</option>
+              <option value="rent">I want to rent a property</option>
+              <option value="sell">I want to sell my property</option>
+              <option value="lease">I want to lease my property</option>
+              <option value="inquiry">General inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+          </button>
+        </form>
+      </div>    </div>
+
+    <div class="map-section">
+      <h3>Find Us Here</h3>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253681.8693352269!2d3.1757767499999997!3d6.4280565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc1e94f6a7e1a8a8!2sVictoria%20Island%2C%20Lagos!5e0!3m2!1sen!2sng!4v1234567890"
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Top-Made Realty</h3>
+        <p>Your trusted partner in finding the perfect property. We make your real estate dreams a reality.</p>
+        <div style="margin-top: 20px;">
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="faqs.html">FAQs</a></p>
+        <p><a href="blog.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <p><a href="#">Buy Property</a></p>
+        <p><a href="#">Rent Property</a></p>
+        <p><a href="#">Sell Property</a></p>
+        <p><a href="#">Property Management</a></p>
+        <p><a href="#">Investment Advisory</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Victoria Island, Lagos, Nigeria</p>
+        <p><i class="fas fa-phone"></i> +234 803 690 9700</p>
+        <p><i class="fas fa-envelope"></i> info@topmaderealty.com</p>        <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Top-Made Realty. All rights reserved. | Designed with <i class="fas fa-heart"></i> in Nigeria</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+    });
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+    });
+    mobileMenuOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+    });
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      document.getElementById('wishlistCount').textContent = wishlist.length;
+    }
+    updateWishlistCount();
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      const subjectText = {
+        'buy': 'I want to buy a property',
+        'rent': 'I want to rent a property',
+        'sell': 'I want to sell my property',
+        'lease': 'I want to lease my property',
+        'inquiry': 'General inquiry'
+      };
+      
+      const whatsappMessage = `*NEW CONTACT FORM SUBMISSION*\n\n` +
+        `*Name:* ${name}\n` +
+        `*Email:* ${email}\n` +
+        `*Phone:* ${phone}\n` +
+        `*Subject:* ${subjectText[subject]}\n\n` +
+        `*Message:*\n${message}`;
+      
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/2348036909700?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>

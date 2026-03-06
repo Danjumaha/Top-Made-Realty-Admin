@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | Top-Made Realty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a2b4d;
+      --primary-light: #2c4a7d;
+      --white: #FFFFFF;
+      --bg: #F5F7FA;
+      --card-bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #555555;
+      --border: #E0E0E0;
+      --success: #2E7D32;
+      --accent: #FF6B6B;
+    }
+    [data-theme="dark"] {
+      --primary: #1a2b4d;
+      --primary-light: #3d5a8a;
+      --white: #1E1E1E;
+      --bg: #0f1419;
+      --card-bg: #1E1E1E;
+      --text: #E0E0E0;
+      --text-light: #B0B0B0;
+      --border: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+ 
+ /* ===== HEADER ===== */
+    .main-header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      z-index: 1000;
+      padding: 15px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      font-style: normal;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .icons-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+    }
+
+    .wishlist-link {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8px;      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+    }
+
+    .wishlist-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #e91e63;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }      
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .theme-toggle,
+      .wishlist-link,
+      .hamburger {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+
+
+    .hero {
+      margin-top: 70px;
+      height: 400px;
+      background: linear-gradient(135deg, rgba(26,43,77,0.9), rgba(26,43,77,0.7)), 
+                  url(' https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    .section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 50px;
+      font-weight: 700;
+    }
+    .faq-category {
+      margin-bottom: 50px;
+    }    .category-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+    .faq-item {
+      background: var(--card-bg);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .faq-question {
+      padding: 20px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .faq-question:hover {
+      background: var(--bg);
+    }
+    .faq-question h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      flex: 1;
+    }
+    .faq-icon {
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      padding: 0 25px 20px;
+      max-height: 500px;
+    }
+    .faq-answer p {      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .cta-section {
+      background: var(--primary);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+    }
+    .main-footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 60px 20px 20px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-section h3 {
+      font-size: 1.3rem;      margin-bottom: 20px;
+    }
+    .footer-section p, .footer-section a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      line-height: 2;
+    }
+    .footer-section a:hover {
+      color: var(--white);
+    }
+    .footer-section i {
+      margin-right: 10px;
+      width: 20px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1001;
+    }
+    .mobile-menu-overlay.active { display: block; }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--card-bg);
+      z-index: 1002;
+      transition: right 0.3s;
+      overflow-y: auto;
+    }
+    .mobile-menu.active { right: 0; }
+    .menu-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;    }
+    .close-menu {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 15px 20px;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:hover {
+      background: var(--bg);
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2rem; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </a>
+      <div class="icons-wrapper">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <a href="wishlist.html" class="wishlist-link">
+          <i class="fas fa-heart"></i>
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </a>
+        <button class="hamburger" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="menu-header">
+      <div class="logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </div>      <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+      <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="submit.html"><i class="fas fa-plus-circle"></i> Submit Property</a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to common questions about our services</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="faq-category">
+      <h2 class="category-title">Buying Properties</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What documents do I need to buy a property in Nigeria?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>You'll need a valid ID (International Passport, National ID, or Driver's License), proof of address, bank statements (6 months), and proof of income. For foreigners, you'll also need a residence permit. We'll guide you through the entire documentation process.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long does the property buying process take?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Typically, the process takes 4-8 weeks from offer acceptance to completion. This includes property inspection, legal checks, payment processing, and transfer of title. Cash purchases are faster, while mortgage approvals may take longer.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Can foreigners buy property in Nigeria?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">          <p>Yes, foreigners can buy property in Nigeria. However, there are some restrictions on land ownership in certain areas. Foreigners can acquire leasehold interests for up to 99 years. We specialize in helping international clients navigate these requirements.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What are the additional costs when buying a property?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Beyond the purchase price, budget for: legal fees (5-10% of property value), stamp duty (0.5-1.5%), registration fees, survey fees, and agent commission (typically 5%). We provide a detailed breakdown of all costs before you make an offer.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h2 class="category-title">Renting Properties</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What is the typical rent payment structure?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>In Nigeria, rent is typically paid annually or bi-annually in advance. Some landlords may accept quarterly payments, especially for commercial properties. Monthly payments are rare but can be negotiated for certain high-end properties.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What's included in the rent?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>This varies by property. Some rentals include utilities (water, electricity), security, and maintenance. Others are exclusive of these costs. Always clarify what's included before signing the lease agreement. We ensure all terms are clearly documented.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Can I negotiate the rent price?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, rent is often negotiable, especially for long-term leases or if you're paying multiple years upfront. Market conditions, property demand, and your negotiation skills all play a role. We can help you negotiate the best possible terms.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">      <h2 class="category-title">Selling & Leasing</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How much is your commission for selling properties?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Our standard commission is 5% of the final sale price for residential properties and 3-5% for commercial properties. This includes marketing, viewings, negotiations, and transaction management. We offer competitive rates and exceptional service.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long will it take to sell my property?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>The average time to sell varies by location, price, and market conditions. In prime areas like Victoria Island and Lekki, properties typically sell within 2-4 months. We use aggressive marketing strategies to minimize time on market.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What documents do I need to sell my property?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>You'll need: Certificate of Occupancy (C of O) or Deed of Assignment, approved building plan, tax clearance certificate, recent utility bills, and valid ID. If the property is mortgaged, you'll need a letter from your bank. We'll verify all documents before listing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h2 class="category-title">General Questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do you offer property management services?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, we offer comprehensive property management services including tenant screening, rent collection, maintenance, repairs, and financial reporting. Our management fee is typically 10% of monthly rent. We handle everything so you don't have to.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How do I schedule a property viewing?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>        </div>
+        <div class="faq-answer">
+          <p>You can schedule viewings through our website, by calling us at 08036909700, or via WhatsApp. We offer flexible viewing times including weekends and evenings. For international clients, we also provide virtual video tours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Is my information kept confidential?</h3>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. We maintain strict confidentiality for all client information. Your personal and financial details are protected under our privacy policy and Nigerian data protection regulations. We never share your information without your consent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <h2>Still Have Questions?</h2>
+    <p>Our team is here to help you with any inquiries</p>
+    <a href="https://wa.me/2348036909700" class="cta-button">
+      <i class="fab fa-whatsapp"></i> Chat With Us
+    </a>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Top-Made Realty</h3>
+        <p>Your trusted partner in finding the perfect property. We make your real estate dreams a reality.</p>
+        <div style="margin-top: 20px;">
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="#" style="margin-right: 15px;"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="faqs.html">FAQs</a></p>
+        <p><a href="blog.html">Blog</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <p><a href="#">Buy Property</a></p>
+        <p><a href="#">Rent Property</a></p>        <p><a href="#">Sell Property</a></p>
+        <p><a href="#">Property Management</a></p>
+        <p><a href="#">Investment Advisory</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Victoria Island, Lagos, Nigeria</p>
+        <p><i class="fas fa-phone"></i> +234 803 690 9700</p>
+        <p><i class="fas fa-envelope"></i> info@topmaderealty.com</p>
+        <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Top-Made Realty. All rights reserved. | Designed with <i class="fas fa-heart"></i> in Nigeria</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+    });    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+    });
+    mobileMenuOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+    });
+
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      document.getElementById('wishlistCount').textContent = wishlist.length;
+    }
+    updateWishlistCount();
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

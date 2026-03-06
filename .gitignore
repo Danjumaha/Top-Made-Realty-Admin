@@ -1,0 +1,21 @@
+ # DO NOT ignore HTML, CSS, JS files
+# Only ignore these:
+
+# Node modules
+node_modules/
+
+# Environment variables (but NOT the values in your code)
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

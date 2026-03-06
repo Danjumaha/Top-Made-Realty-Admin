@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Top-Made Realty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a2b4d;
+      --primary-light: #2c4a7d;
+      --white: #FFFFFF;
+      --bg: #F5F7FA;
+      --card-bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #555555;
+      --border: #E0E0E0;
+    }
+    [data-theme="dark"] {
+      --primary: #1a2b4d;
+      --primary-light: #3d5a8a;
+      --white: #1E1E1E;
+      --bg: #0f1419;
+      --card-bg: #1E1E1E;
+      --text: #E0E0E0;
+      --text-light: #B0B0B0;
+      --border: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+ 
+ /* ===== HEADER ===== */
+    .main-header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      z-index: 1000;
+      padding: 15px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      font-style: normal;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .icons-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+    }
+
+    .wishlist-link {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8px;      border-radius: 50%;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+    }
+
+    .wishlist-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #e91e63;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }      
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .theme-toggle,
+      .wishlist-link,
+      .hamburger {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+
+
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 43, 77, 0.85), rgba(26, 43, 77, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200') center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 20px;
+      margin-top: 75px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+
+
+
+
+    /* Content Sections */
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;    }
+    .about-card {
+      background: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+    .about-card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .about-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    .about-card p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .story-section {
+      background: var(--card-bg);
+      padding: 60px 20px;
+    }
+    .story-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .story-text h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .story-text p {
+      color: var(--text-light);
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+    .story-image {
+      border-radius: 12px;      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Footer */
+    .main-footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 40px 20px 20px;
+      margin-top: 60px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .footer-section h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    .footer-section p, .footer-section a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      line-height: 1.8;
+    }
+    .footer-section a:hover {
+      color: var(--white);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+    }
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--card-bg);
+      z-index: 1001;      transition: right 0.3s;
+      overflow-y: auto;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    }
+    .mobile-menu.active { right: 0; }
+    .menu-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .mobile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 20px;
+      color: var(--text);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: all 0.3s;
+    }
+    .mobile-nav a:hover {
+      background: var(--bg);
+      border-left-color: var(--primary);
+    }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }    .mobile-overlay.active { display: block; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .story-content { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">TR</div>
+          <span class="logo-text">Top-Made Realty</span>
+        </a>
+      </div>
+      
+      <div class="icons-wrapper">
+        <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <a href="wishlist.html" class="wishlist-link" title="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </a>
+        
+        <button id="menuToggle" class="hamburger" title="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+ <!-- Mobile Menu -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="menu-header">
+      <div class="menu-logo">
+        <div class="logo-icon">TR</div>
+        <span>Top-Made Realty</span>
+      </div>
+      <button class="close-btn" id="closeMenu">&times;</button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+      <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+    </nav>
+  </div>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>About Us</h1>
+      <p>Experience seamless real estate solutions with Top-Made Realty's expert guidance</p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="story-section">
+    <div class="story-content">
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>Top-Made Realty was founded with a simple mission: to make property ownership and investment in Nigeria accessible, transparent, and rewarding for everyone.</p>
+        <p>With years of experience in the Nigerian real estate market, we have grown from a small agency to one of the most trusted names in luxury property sales and rentals.</p>
+        <p>Our team of experienced professionals is dedicated to providing personalized service and expert guidance throughout your property journey.</p>
+      </div>
+      <div class="story-image">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Our Office">
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission, Vision, Values -->
+  <section class="section">
+    <h2 class="section-title">What Drives Us</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Our Mission</h3>
+        <p>To provide exceptional real estate services that exceed expectations, helping clients find their dream properties while building lasting relationships based on trust and integrity.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-eye"></i>
+        <h3>Our Vision</h3>
+        <p>To be Nigeria's leading real estate company, recognized for our professionalism, market expertise, and commitment to transforming the property ownership experience.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-heart"></i>
+        <h3>Our Values</h3>
+        <p>Integrity, transparency, and client satisfaction are at the core of everything we do. We believe in honest communication and delivering results that matter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Top-Made Realty</h3>        <p>Your trusted partner in finding the perfect property in Nigeria's most sought-after locations.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="contact.html">Contact</a></p>
+        <p><a href="faqs.html">FAQs</a></p>
+        <p><a href="blog.html">Blog</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-phone"></i> 08036909700</p>
+        <p><i class="fas fa-envelope"></i> info@topmaderealty.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Nigeria</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Top-Made Realty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');    const closeMenu = document.getElementById('closeMenu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      mobileOverlay.classList.add('active');
+    });
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+    });
+    mobileOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+    });
+
+    // Wishlist Count
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      document.getElementById('wishlistCount').textContent = wishlist.length;
+    }
+    updateWishlistCount();
+  </script>
+</body>
+</html>
