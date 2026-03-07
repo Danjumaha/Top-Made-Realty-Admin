@@ -7,308 +7,66 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 420px;
-    }
-    h1 {
-      color: #1a2b4d;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      color: #666;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .google-btn {
-      width: 100%;
-      padding: 12px;
-      background: white;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;      transition: all 0.3s;
-    }
-    .google-btn:hover {
-      border-color: #1a2b4d;
-      background: #f8f9fa;
-    }
-    .google-btn i {
-      color: #DB4437;
-      font-size: 18px;
-    }
-    .divider {
-      text-align: center;
-      color: #666;
-      margin: 20px 0;
-      font-size: 14px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #333;
-    }
-    .input-wrapper {
-      position: relative;
-    }
-    input {
-      width: 100%;
-      padding: 12px 45px 12px 15px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 15px;
-    }
-    input:focus {
-      outline: none;
-      border-color: #1a2b4d;
-    }
-    .password-toggle {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: #666;
-      cursor: pointer;
-      font-size: 16px;
-    }    .form-options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-    .remember-me {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #666;
-      cursor: pointer;
-    }
-    .remember-me input {
-      width: auto;
-      cursor: pointer;
-    }
-    .forgot-password {
-      color: #1a2b4d;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .forgot-password:hover {
-      text-decoration: underline;
-    }
-    button[type="submit"] {
-      width: 100%;
-      padding: 14px;
-      background: #1a2b4d;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    button[type="submit"]:hover {
-      background: #2c4a7d;
-    }
-    button[type="submit"]:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-    .alert {
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      display: none;    }
+    body { font-family: Arial, sans-serif; background: #f5f7fa; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; max-width: 420px; }
+    h1 { color: #1a2b4d; text-align: center; margin-bottom: 10px; }
+    .subtitle { color: #666; text-align: center; margin-bottom: 25px; }
+    .google-btn { width: 100%; padding: 12px; background: white; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; transition: all 0.3s; }
+    .google-btn:hover { border-color: #1a2b4d; background: #f8f9fa; }
+    .google-btn i { color: #DB4437; font-size: 18px; }
+    .divider { text-align: center; color: #666; margin: 20px 0; font-size: 14px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+    .input-wrapper { position: relative; }
+    input { width: 100%; padding: 12px 45px 12px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; }
+    input:focus { outline: none; border-color: #1a2b4d; }
+    .password-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; cursor: pointer; font-size: 16px; }
+    .form-options { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 14px; }
+    .remember-me { display: flex; align-items: center; gap: 8px; color: #666; cursor: pointer; }
+    .remember-me input { width: auto; cursor: pointer; }
+    .forgot-password { color: #1a2b4d; text-decoration: none; font-weight: 600; cursor: pointer; }
+    .forgot-password:hover { text-decoration: underline; }
+    button[type="submit"] { width: 100%; padding: 14px; background: #1a2b4d; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
+    button[type="submit"]:hover { background: #2c4a7d; }
+    button[type="submit"]:disabled { background: #ccc; cursor: not-allowed; }
+    .alert { padding: 12px; border-radius: 8px; margin-bottom: 20px; display: none; }
     .alert.show { display: block; }
-    .alert-error {
-      background: #ffebee;
-      color: #c62828;
-    }
-    .alert-success {
-      background: #e8f5e9;
-      color: #2e7d32;
-    }
-    .links {
-      text-align: center;
-      margin-top: 20px;
-      color: #666;
-    }
-    .links a {
-      color: #1a2b4d;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
+    .alert-error { background: #ffebee; color: #c62828; }
+    .alert-success { background: #e8f5e9; color: #2e7d32; }
+    .links { text-align: center; margin-top: 20px; color: #666; }
+    .links a { color: #1a2b4d; text-decoration: none; font-weight: 600; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
     .modal.show { display: flex; }
-    .modal-content {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-    }
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .modal-header h3 {
-      color: #1a2b4d;
-    }    .modal-close {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: #666;
-    }
+    .modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .modal-header h3 { color: #1a2b4d; }
+    .modal-close { background: none; border: none; font-size: 24px; cursor: pointer; color: #666; }
     .modal-step { display: none; }
     .modal-step.active { display: block; }
-
-
-
-
-/* Google Sign-In Button - Professional Design */
-.google-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  padding: 14px 24px;
-  background-color: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333333;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: inherit;
-}
-
-.google-btn:hover {
-  background-color: #f8f9fa;
-  border-color: #dadce0;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
-}
-
-.google-btn:active {
-  background-color: #f1f3f4;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: translateY(0);
-}
-
-.google-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .google-btn {
-    background-color: #1a2b4d;
-    border-color: #404040;
-    color: #ffffff;
-  }
-  
-  .google-btn:hover {
-    background-color: gold;
-    border-color: #505050;
-  }
-}
-
-/* Mobile responsive */
-@media (max-width: 480px) {
-  .google-btn {
-    padding: 12px 20px;
-    font-size: 15px;
-  }
-}
-
-
-
-
-
-
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome Back!</h1>
-    <p class="subtitle">Sign in to your account</p>
-    
+    <h1>Welcome Back!</h1>    <p class="subtitle">Sign in to your account</p>
     <div id="alertBox" class="alert"></div>
     
-
-
- 
     <form id="loginForm">
       <div class="form-group">
         <label>Email</label>
         <input type="email" id="email" required placeholder="your@email.com">
       </div>
-      
       <div class="form-group">
         <label>Password</label>
         <div class="input-wrapper">
           <input type="password" id="password" required placeholder="Enter password">
-          <button type="button" class="password-toggle" id="togglePassword">
-            <i class="fas fa-eye"></i>
-          </button>
+          <button type="button" class="password-toggle" id="togglePassword"><i class="fas fa-eye"></i></button>
         </div>
       </div>
-      
       <div class="form-options">
-        <label class="remember-me">
-          <input type="checkbox" id="remember">
-          Remember me
-        </label>
+        <label class="remember-me"><input type="checkbox" id="remember"> Remember me</label>
         <span class="forgot-password" id="forgotPasswordLink">Forgot Password?</span>
       </div>
-            <button type="submit" id="submitBtn">Sign In</button>
+      <button type="submit" id="submitBtn">Sign In</button>
     </form>
     
     <div class="links">
@@ -324,63 +82,54 @@
         <h3>Reset Password</h3>
         <button class="modal-close" id="modalClose">&times;</button>
       </div>
-      
-      <!-- Step 1: Enter Email -->
       <div class="modal-step active" id="step1">
         <p style="margin-bottom: 15px; color: #666;">Enter your email to receive reset link</p>
-        <div class="form-group">
-          <input type="email" id="resetEmail" placeholder="your@email.com" required>
-        </div>
+        <div class="form-group"><input type="email" id="resetEmail" placeholder="your@email.com" required></div>
         <button id="sendResetBtn">Send Reset Link</button>
       </div>
-      
-      <!-- Step 2: Success Message -->
       <div class="modal-step" id="step2">
         <div style="text-align: center; padding: 20px 0;">
           <i class="fas fa-check-circle" style="font-size: 3rem; color: #2e7d32; margin-bottom: 15px;"></i>
           <p style="color: #2e7d32; font-weight: 600;">Check your email!</p>
           <p style="color: #666; font-size: 14px; margin-top: 10px;">We've sent you a password reset link.</p>
         </div>
-
-
-<!-- Add this after the modal success step -->
-<div style="background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 15px; font-size: 13px;">
-  <i class="fas fa-exclamation-triangle" style="color: #856404;"></i>
-  <strong style="color: #856404;">Important:</strong> 
-  <span style="color: #856404;">Check your spam folder if you don't see the email!</span>
-</div>
-
-
-
-
-
-
-
-        <button id="closeModalBtn" style="background: #2e7d32;">Close</button>
+        <div style="background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 15px; font-size: 13px;">
+          <i class="fas fa-exclamation-triangle" style="color: #856404;"></i>
+          <strong style="color: #856404;">Important:</strong> 
+          <span style="color: #856404;">Check your spam folder if you don't see the email!</span>        </div>
+        <button id="closeModalBtn" style="background: #2e7d32; width: 100%; padding: 10px; border: none; border-radius: 8px; color: white; margin-top: 10px; cursor: pointer;">Close</button>
       </div>
     </div>
   </div>
 
+  <!-- ✅ HIDE GOOGLE BUTTON IN APP - Inline Script (Runs Immediately) -->
+  <script>
+  (function() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    var isWebView = /(wv|WebView)/i.test(ua) && /Android|iPhone|iPad|iPod/i.test(ua);
+    if (isWebView) {
+      function hideGoogle() {
+        var btns = document.querySelectorAll('button');
+        btns.forEach(function(b) {
+          if (b.textContent.toLowerCase().includes('google') || b.id.toLowerCase().includes('google') || (b.className && b.className.toString().toLowerCase().includes('google'))) {
+            b.style.cssText = 'display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important;';
+          }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hideGoogle);
+      else hideGoogle();
+    }
+  })();
+  </script>
 
- 
-
-
-
-
-
-
+  <!-- ✅ LOGIN LOGIC -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { 
-      getAuth, 
-      signInWithEmailAndPassword,
-      GoogleAuthProvider,
-      signInWithPopup,
-      sendPasswordResetEmail
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyCCtvETKvK_F2Juc1eYX6Qvg-MoIMU8dIw",      authDomain: "top-made-realty.firebaseapp.com",
+      apiKey: "AIzaSyCCtvETKvK_F2Juc1eYX6Qvg-MoIMU8dIw",
+      authDomain: "top-made-realty.firebaseapp.com",
       projectId: "top-made-realty",
       storageBucket: "top-made-realty.firebasestorage.app",
       messagingSenderId: "984525164905",
@@ -389,7 +138,6 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const googleProvider = new GoogleAuthProvider();
 
     const loginForm = document.getElementById('loginForm');
     const alertBox = document.getElementById('alertBox');
@@ -397,9 +145,7 @@
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
     const emailInput = document.getElementById('email');
-    const rememberCheckbox = document.getElementById('remember');
-    const googleLoginBtn = document.getElementById('googleLoginBtn');
-    
+    const rememberCheckbox = document.getElementById('remember');    
     // Modal elements
     const forgotModal = document.getElementById('forgotModal');
     const modalClose = document.getElementById('modalClose');
@@ -410,14 +156,12 @@
     const sendResetBtn = document.getElementById('sendResetBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
-    // Show Alert
     function showAlert(msg, type) {
       alertBox.textContent = msg;
       alertBox.className = `alert alert-${type} show`;
       setTimeout(() => alertBox.classList.remove('show'), 5000);
     }
 
-    // Toggle Password Visibility
     togglePassword.addEventListener('click', () => {
       const type = passwordInput.type === 'password' ? 'text' : 'password';
       passwordInput.type = type;
@@ -427,81 +171,32 @@
     // Load remembered email
     document.addEventListener('DOMContentLoaded', () => {
       const savedEmail = localStorage.getItem('rememberedEmail');
-      if (savedEmail) {
-        emailInput.value = savedEmail;
-        rememberCheckbox.checked = true;      }
-    });
-
-    // Google Sign In
-    googleLoginBtn.addEventListener('click', async () => {
-      submitBtn.disabled = true;
-      googleLoginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
-      
-      try {
-        const result = await signInWithPopup(auth, googleProvider);
-        const user = result.user;
-        
-        const userData = {
-          uid: user.uid,
-          name: user.displayName || user.email.split('@')[0],
-          email: user.email,
-          photo: user.photoURL,
-          isGoogle: true
-        };
-        localStorage.setItem('user', JSON.stringify(userData));
-        
-        showAlert('Login successful! Welcome, ' + userData.name, 'success');
-        
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 1500);
-      } catch (error) {
-        console.error('Google error:', error);
-        showAlert(error.message || 'Google sign-in failed', 'error');
-        googleLoginBtn.innerHTML = '<i class="fab fa-google"></i> Continue with Google';
-        submitBtn.disabled = false;
-      }
+      if (savedEmail) { emailInput.value = savedEmail; rememberCheckbox.checked = true; }
     });
 
     // Regular Login
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
       const email = emailInput.value.trim();
       const password = passwordInput.value;
       const remember = rememberCheckbox.checked;
 
-      if (remember) {
-        localStorage.setItem('rememberedEmail', email);
-      } else {
-        localStorage.removeItem('rememberedEmail');
-      }
-      
+      if (remember) localStorage.setItem('rememberedEmail', email);
+      else localStorage.removeItem('rememberedEmail');
+
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Signing in...';      
+      submitBtn.textContent = 'Signing in...';
+
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        
-        const userData = {
-          email: email,
-          name: email.split('@')[0],
-          loginTime: new Date().toISOString()
-        };
-        localStorage.setItem('user', JSON.stringify(userData));
-        
+        localStorage.setItem('user', JSON.stringify({ email: email, name: email.split('@')[0], loginTime: new Date().toISOString() }));
         showAlert('Login successful! Redirecting...', 'success');
-        
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 1500);
+        setTimeout(() => { window.location.href = 'index.html'; }, 1500);
       } catch (error) {
         console.error('Login error:', error);
-        
-        let message = 'Invalid email or password';
-        if (error.code === 'auth/user-not-found') message = 'No account found with this email';
+        let message = 'Invalid email or password';        if (error.code === 'auth/user-not-found') message = 'No account found with this email';
         else if (error.code === 'auth/wrong-password') message = 'Incorrect password';
         else if (error.code === 'auth/too-many-requests') message = 'Too many attempts. Try later';
-        
         showAlert(message, 'error');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Sign In';
@@ -509,38 +204,21 @@
     });
 
     // Forgot Password Modal
-    forgotPasswordLink.addEventListener('click', () => {
-      forgotModal.classList.add('show');
-      showStep(1);
-    });
-    
-    modalClose.addEventListener('click', () => {
-      forgotModal.classList.remove('show');
-    });
-    
-    closeModalBtn.addEventListener('click', () => {
-      forgotModal.classList.remove('show');
-    });
-    
-    forgotModal.addEventListener('click', (e) => {
-      if (e.target === forgotModal) forgotModal.classList.remove('show');
-    });
+    forgotPasswordLink.addEventListener('click', () => { forgotModal.classList.add('show'); showStep(1); });
+    modalClose.addEventListener('click', () => { forgotModal.classList.remove('show'); });
+    closeModalBtn.addEventListener('click', () => { forgotModal.classList.remove('show'); });
+    forgotModal.addEventListener('click', (e) => { if (e.target === forgotModal) forgotModal.classList.remove('show'); });
 
     function showStep(step) {
-      [step1, step2].forEach(s => s.classList.remove('active'));      document.getElementById(`step${step}`).classList.add('active');
+      [step1, step2].forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
     }
 
-    // Send Reset Email
     sendResetBtn.addEventListener('click', async () => {
       const email = resetEmail.value.trim();
-      if (!email) {
-        showAlert('Please enter your email', 'error');
-        return;
-      }
-      
+      if (!email) { showAlert('Please enter your email', 'error'); return; }
       sendResetBtn.disabled = true;
       sendResetBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      
       try {
         await sendPasswordResetEmail(auth, email);
         showAlert('Reset link sent! Check your email.', 'success');
@@ -555,64 +233,6 @@
         sendResetBtn.textContent = 'Send Reset Link';
       }
     });
-
-
-
-
-
-
-
-
- 
-(function() {
-  // Detect WebView
-  var ua = navigator.userAgent || navigator.vendor || window.opera;
-  var isWebView = /(wv|WebView)/i.test(ua) && /Android|iPhone|iPad|iPod/i.test(ua);
-  
-  // If in app, hide Google button immediately
-  if (isWebView) {
-    // Wait for DOM to be ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', hideGoogleButton);
-    } else {
-      hideGoogleButton();
-    }
-  }
-  
-  function hideGoogleButton() {
-    // Find and hide ALL Google buttons
-    var buttons = document.querySelectorAll('button');
-    buttons.forEach(function(btn) {
-      if (btn.textContent.includes('Google') || 
-          btn.id.includes('google') || 
-          (btn.className && btn.className.toString().includes('google'))) {
-        btn.style.display = 'none';
-        btn.disabled = true;
-      }
-    });
-    
-    // Also try by class name
-    var googleBtns = document.querySelectorAll('.google-btn, #googleLoginBtn, #googleSignupBtn');
-    googleBtns.forEach(function(btn) {
-      btn.style.display = 'none';
-    });
-    
-    console.log('✅ Google button hidden in app');
-  }
-})();
-</script>
-
-
-
-
-
- 
-
-
-<!-- Firebase Config -->
-<script type="module" src="/firebase-config.js"></script>
-
-
-
+  </script>
 </body>
 </html>
